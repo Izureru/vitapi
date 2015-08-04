@@ -21,7 +21,6 @@ func NewRouter() *mux.Router {
 
 		subrouter := router.PathPrefix("/").Subrouter()
 		subrouter.HandleFunc("./web/proxy.html", Index)
-
 	}
 	return router
 }

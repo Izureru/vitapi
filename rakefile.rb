@@ -7,8 +7,7 @@ end
 namespace :run do
 
 	task :dev do
-		# ENV['PORT']=":8080"
-		# sh "pkill simplyactiv"
+		ENV['PORT']=":8080"
 		sh  "go get"
 		sh  "go build"
 		sh  "./simplyactiveapi"
