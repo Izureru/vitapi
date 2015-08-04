@@ -3,7 +3,7 @@ task :run do
 		# sh  "pkill simplea
 		sh  "go get"
 		sh  "go build"
-		sh  "./simplyactive-api"
+		sh  "./simplyactiveapi"
 end
 
 task :build do

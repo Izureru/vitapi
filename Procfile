@@ -1,1 +1,1 @@
-web: simplyactive-api
+web: simplyactiveapi

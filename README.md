@@ -1,4 +1,4 @@
-# simplyactive-api
+# simplyactiveapi
 
 
 

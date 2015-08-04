@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/DigitalInnovation/simplyactive-api/global"
+	"github.com/DigitalInnovation/simplyactiveapi/global"
 )
 
 func main() {
