@@ -1,0 +1,23 @@
+{
+	"ImportPath": "github.com/DigitalInnovation/simplyactive-api",
+	"GoVersion": "go1.3.3",
+	"Deps": [
+		{
+			"ImportPath": "github.com/gorilla/context",
+			"Rev": "50c25fb3b2b3b3cc724e9b6ac75fb44b3bccd0da"
+		},
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Rev": "e444e69cbd2e2e3e0749a2f3c717cec491552bbf"
+		},
+		{
+			"ImportPath": "github.com/gorilla/pat",
+			"Rev": "ae2e162c4b2ae96aa66b596b2c18f17834299ed0"
+		},
+		{
+			"ImportPath": "labix.org/v2/mgo",
+			"Comment": "287",
+			"Rev": "gustavo@niemeyer.net-20140501184651-975yyw9ipld92pji"
+		}
+	]
+}
