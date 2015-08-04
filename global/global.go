@@ -1,23 +1,23 @@
-package global
+// package global
 
-import (
-	"os"
-	"strconv"
-)
+// import (
+// 	"os"
+// 	"strconv"
+// )
 
-var (
-	Config ConfigStruct
-)
+// var (
+// 	Config ConfigStruct
+// )
 
-type ConfigStruct struct {
-	Port int
-}
+// type ConfigStruct struct {
+// 	Port int
+// }
 
-func LoadConfig() {
+// func LoadConfig() {
 
-	Config = ConfigStruct{}
+// 	Config = ConfigStruct{}
 
-	port, _ := strconv.Atoi(os.Getenv("PORT"))
+// 	port, _ := strconv.Atoi(os.Getenv("PORT"))
 
-	Config.Port = port
-}
+// 	Config.Port = port
+// }

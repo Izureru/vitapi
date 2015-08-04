@@ -10,15 +10,24 @@ import (
 func main() {
 
 	port := GetPort()
-	router := NewRouter()
+	log.Println("[-] Listening on...", port)
+	http.HandleFunc("/", func(res http.ResponseWriter, req *http.Request) {
+		fmt.Fprintln(res, "hello, world")
+	})
 
-	log.Println("I am listening to port", os.Getenv("PORT"))
+	err := http.ListenAndServe(os.Getenv("PORT"), nil)
+	if err != nil {
+		panic(err)
+	}
+	// router := NewRouter()
 
-	log.Fatal(http.ListenAndServe(os.Getenv("PORT"), router))
+	// log.Println("I am listening to port", os.Getenv("PORT"))
 
-	http.Handle("/", router)
+	// log.Fatal(http.ListenAndServe(os.Getenv("PORT"), router))
 
-	http.ListenAndServe(fmt.Sprintf(":%v", port), nil)
+	// http.Handle("/", router)
+
+	// http.ListenAndServe(fmt.Sprintf(":%v", port), nil)
 }
 
 func GetPort() string {
@@ -27,5 +36,5 @@ func GetPort() string {
 		port = "8080"
 		log.Println("[-] No PORT environment variable detected. Setting to ", port)
 	}
-	return ":" + port
+	return port
 }
