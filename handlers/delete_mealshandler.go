@@ -4,11 +4,11 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/DigitalInnovation/simplyactiveapi/global"
+	"github.com/DigitalInnovation/schnapi/global"
 )
 
-func DeleteMealHandler(rw http.ResponseWriter, r *http.Request) {
-	log.Println("DeleteMealssHandler called")
+func DeleteUserHandler(rw http.ResponseWriter, r *http.Request) {
+	log.Println("DeleteUsersHandler called")
 
 	err := CheckAPIKey(r)
 	if err != nil {
@@ -19,7 +19,7 @@ func DeleteMealHandler(rw http.ResponseWriter, r *http.Request) {
 
 	id := r.URL.Query().Get(":id")
 
-	err, errCode := global.Dal.DeleteMeal(id)
+	err, errCode := global.Dal.DeleteUser(id)
 	if err != nil {
 		log.Printf("Error, failed to get meal Data %v\n", err)
 		http.Error(rw, err.Error(), errCode)

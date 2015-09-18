@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/gorilla/mux"
+	"github.com/DigitalInnovation/schnapi/Godeps/_workspace/src/github.com/gorilla/mux"
 )
 
 func myHandler(w http.ResponseWriter, r *http.Request) {

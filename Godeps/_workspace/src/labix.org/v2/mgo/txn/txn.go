@@ -9,8 +9,8 @@ package txn
 import (
 	"encoding/binary"
 	"fmt"
-	"labix.org/v2/mgo"
-	"labix.org/v2/mgo/bson"
+	"github.com/DigitalInnovation/schnapi/Godeps/_workspace/src/labix.org/v2/mgo"
+	"github.com/DigitalInnovation/schnapi/Godeps/_workspace/src/labix.org/v2/mgo/bson"
 	"reflect"
 	"sort"
 	"sync"

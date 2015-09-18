@@ -5,12 +5,12 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/DigitalInnovation/simplyactiveapi/global"
+	"github.com/DigitalInnovation/schnapi/global"
 )
 
 func CheckAPIKey(r *http.Request) error {
 
-	key := r.Header.Get("simplyactiveapikey")
+	key := r.Header.Get("schnapikey")
 	if len(key) == 0 {
 		return errors.New("No Key Provided")
 	}

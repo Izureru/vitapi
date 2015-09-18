@@ -5,11 +5,11 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/DigitalInnovation/simplyactiveapi/entities"
-	"github.com/DigitalInnovation/simplyactiveapi/global"
+	"github.com/DigitalInnovation/schnapi/entities"
+	"github.com/DigitalInnovation/schnapi/global"
 )
 
-func PostMealsHandler(rw http.ResponseWriter, r *http.Request) {
+func PostUserHandler(rw http.ResponseWriter, r *http.Request) {
 	log.Println("PostCollectMessagesHandler called")
 
 	err := CheckAPIKey(r)
@@ -21,22 +21,22 @@ func PostMealsHandler(rw http.ResponseWriter, r *http.Request) {
 
 	defer r.Body.Close()
 
-	var mealData entities.Meal
+	var userData entities.User
 	decoder := json.NewDecoder(r.Body)
-	err = decoder.Decode(&mealData)
+	err = decoder.Decode(&userData)
 	if err != nil {
 		log.Printf("Error decoding body: %v", err)
 		http.Error(rw, err.Error(), http.StatusBadRequest)
 		return
 	}
 
-	if mealData.Name == "" {
-		log.Println("Bad Request: Meal name property is empty")
-		http.Error(rw, "Error Meal name property must not be empty", http.StatusBadRequest)
+	if userData.Name == "" {
+		log.Println("Bad Request: User name property is empty")
+		http.Error(rw, "Error User name property must not be empty", http.StatusBadRequest)
 		return
 	}
 
-	err = global.Dal.CreateMeal(mealData)
+	err = global.Dal.CreateUser(userData)
 	if err != nil {
 		log.Printf("Error, failed to create message %v\n", err)
 		http.Error(rw, "Error creating message", http.StatusInternalServerError)

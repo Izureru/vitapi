@@ -28,7 +28,7 @@ package mgo
 
 import (
 	"errors"
-	"labix.org/v2/mgo/bson"
+	"github.com/DigitalInnovation/schnapi/Godeps/_workspace/src/labix.org/v2/mgo/bson"
 	"net"
 	"sync"
 	"time"

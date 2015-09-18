@@ -1,1 +1,1 @@
-web: simplyactiveapi
+web: schnapi

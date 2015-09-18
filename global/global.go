@@ -1,7 +1,7 @@
 package global
 
 import (
-	"github.com/DigitalInnovation/simplyactiveapi/data"
+	"github.com/DigitalInnovation/schnapi/data"
 	"log"
 	"os"
 	"strconv"

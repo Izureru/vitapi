@@ -29,7 +29,7 @@ package mgo_test
 import (
 	"flag"
 	"fmt"
-	"labix.org/v2/mgo"
+	"github.com/DigitalInnovation/schnapi/Godeps/_workspace/src/labix.org/v2/mgo"
 	. "launchpad.net/gocheck"
 	"net/url"
 	"sync"

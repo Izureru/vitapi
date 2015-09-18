@@ -9,11 +9,11 @@ end
 namespace :run do
 	
 	task :local => ["build", "config:local"] do
-		sh  "./simplyactiveapi"
+		sh  "./schnapi"
 	end
 
 	task :dev => ["build", "config:dev"] do
-		sh  "./simplyactiveapi"
+		sh  "./schnapi"
 	end
 end
 
@@ -24,15 +24,7 @@ namespace :config do
 		ENV['MONGOURI']="127.0.0.1:27017"
 		ENV['DBNAME']="simplyactivedb"
 		ENV['APIKEY']="1234"
-		ENV['CNAME']="meals"
-	end
-
-	task :dev do
-		ENV['PORT']="4300"
-		ENV['MONGOURI']="mongodb://admin:admin@ds029793.mongolab.com:29793/simplyactivedb"
-		ENV['DBNAME']="simplyactivedb"
-		ENV['APIKEY']="12358"
-		ENV['CNAME']="meals"
+		ENV['CNAME']="users"
 	end
 
 	task :mimic do
@@ -40,6 +32,6 @@ namespace :config do
 		ENV['MONGOURI']="127.0.0.1:27017"
 		ENV['DBNAME']="mongoid"
 		ENV['APIKEY']="1234"
-		ENV['CNAME']="meals"
+		ENV['CNAME']="users"
 	end
 end

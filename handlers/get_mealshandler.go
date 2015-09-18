@@ -5,11 +5,11 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/DigitalInnovation/simplyactiveapi/entities"
-	"github.com/DigitalInnovation/simplyactiveapi/global"
+	"github.com/DigitalInnovation/schnapi/entities"
+	"github.com/DigitalInnovation/schnapi/global"
 )
 
-func GetMealsHandler(rw http.ResponseWriter, r *http.Request) {
+func GetUserHandler(rw http.ResponseWriter, r *http.Request) {
 	log.Println("GetCollectMealsHandler called")
 
 	err := CheckAPIKey(r)
@@ -19,17 +19,9 @@ func GetMealsHandler(rw http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	unexpired := r.URL.Query().Get("unexpired")
-
-	var mealsRetrieved []entities.Meal
-
-	if unexpired != "" && unexpired == "true" {
-		mealsRetrieved, err = global.Dal.GetAllMeals()
-		log.Println("GetUnexpiredMessages")
-	} else {
-		mealsRetrieved, err = global.Dal.GetAllMeals()
-		log.Println("GetAllMessages")
-	}
+	var usersRetrieved []entities.User
+	usersRetrieved, err = global.Dal.GetAllUsers()
+	log.Println("GetAllMessages")
 
 	if err != nil {
 		log.Printf("Error, failed to get message Data %v\n", err)
@@ -40,7 +32,7 @@ func GetMealsHandler(rw http.ResponseWriter, r *http.Request) {
 	rw.Header().Set("Content-Type", "application/json")
 	rw.Header().Set("Access-Control-Allow-Origin", "*")
 
-	err = json.NewEncoder(rw).Encode(mealsRetrieved)
+	err = json.NewEncoder(rw).Encode(usersRetrieved)
 	if err != nil {
 		log.Printf("Error, failed to encode JSON %v\n", err)
 		http.Error(rw, "Error encoding JSON", http.StatusInternalServerError)

@@ -10,8 +10,8 @@ import (
 	"path"
 	"strings"
 
-	"github.com/gorilla/context"
-	"github.com/gorilla/mux"
+	"github.com/DigitalInnovation/schnapi/Godeps/_workspace/src/github.com/gorilla/context"
+	"github.com/DigitalInnovation/schnapi/Godeps/_workspace/src/github.com/gorilla/mux"
 )
 
 // New returns a new router.
@@ -71,7 +71,9 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		}
 		handler = r.NotFoundHandler
 	}
-	defer context.Clear(req)
+	if !r.KeepContext {
+		defer context.Clear(req)
+	}
 	handler.ServeHTTP(w, req)
 }
 
