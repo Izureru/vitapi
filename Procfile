@@ -1,1 +1,1 @@
-web: ./schnapi
+web: schnapi
