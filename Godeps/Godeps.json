@@ -15,7 +15,12 @@
 			"Rev": "2090ee10e241b04200794036d50d2db07196784d"
 		},
 		{
-			"ImportPath": "labix.org/v2/mgo",
+			"ImportPath": "gopkg.in/mgo.v2",
+			"Comment": "r2015.06.03-3-g3569c88",
+			"Rev": "3569c88678d88179dcbd68d02ab081cbca3cd4d0"
+		},
+		{
+			"ImportPath": "labix.org/v2/mgo/bson",
 			"Comment": "287",
 			"Rev": "gustavo@niemeyer.net-20140501184651-975yyw9ipld92pji"
 		}
