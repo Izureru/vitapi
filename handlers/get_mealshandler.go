@@ -5,22 +5,15 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/DigitalInnovation/schnapi/entities"
-	"github.com/DigitalInnovation/schnapi/global"
+	"github.com/DigitalInnovation/vitamns/entities"
+	"github.com/DigitalInnovation/vitamns/global"
 )
 
-func GetUserHandler(rw http.ResponseWriter, r *http.Request) {
-	log.Println("GetCollectMealsHandler called")
+func GetMealsHandler(rw http.ResponseWriter, r *http.Request) {
+	log.Println("GetMealsHandler called")
 
-	err := CheckAPIKey(r)
-	if err != nil {
-		log.Printf("API key error: %v", err)
-		http.Error(rw, "Authentication Failure", http.StatusUnauthorized)
-		return
-	}
-
-	var usersRetrieved []entities.User
-	usersRetrieved, err = global.Dal.GetAllUsers()
+	var mealsRetrieved []entities.Meal
+	mealsRetrieved, err := global.Dal.GetAllMeals()
 	log.Println("GetAllMessages")
 
 	if err != nil {
@@ -32,7 +25,7 @@ func GetUserHandler(rw http.ResponseWriter, r *http.Request) {
 	rw.Header().Set("Content-Type", "application/json")
 	rw.Header().Set("Access-Control-Allow-Origin", "*")
 
-	err = json.NewEncoder(rw).Encode(usersRetrieved)
+	err = json.NewEncoder(rw).Encode(mealsRetrieved)
 	if err != nil {
 		log.Printf("Error, failed to encode JSON %v\n", err)
 		http.Error(rw, "Error encoding JSON", http.StatusInternalServerError)

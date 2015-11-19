@@ -1,7 +1,7 @@
 package global
 
 import (
-	"github.com/DigitalInnovation/schnapi/data"
+	"github.com/DigitalInnovation/vitamns/data"
 	"log"
 	"os"
 	"strconv"
@@ -17,7 +17,6 @@ type ConfigStruct struct {
 	MongoURI string
 	DBName   string
 	CName    string
-	APIKey   string
 }
 
 func loadConfig() {
@@ -30,7 +29,6 @@ func loadConfig() {
 	Config.MongoURI = os.Getenv("MONGOURI")
 	Config.DBName = os.Getenv("DBNAME")
 	Config.CName = os.Getenv("CNAME")
-	Config.APIKey = os.Getenv("APIKEY")
 }
 
 func Setup() {

@@ -9,11 +9,11 @@ end
 namespace :run do
 	
 	task :local => ["build", "config:local"] do
-		sh  "./schnapi"
+		sh  "./vitamns"
 	end
 
 	task :dev => ["build", "config:dev"] do
-		sh  "./schnapi"
+		sh  "./vitamns"
 	end
 end
 
@@ -23,15 +23,13 @@ namespace :config do
 		ENV['PORT']="4200"
 		ENV['MONGOURI']="127.0.0.1:27017"
 		ENV['DBNAME']="simplyactivedb"
-		ENV['APIKEY']="1234"
-		ENV['CNAME']="users"
+		ENV['CNAME']="meals"
 	end
 
 	task :mimic do
 		ENV['PORT']="3800"
 		ENV['MONGOURI']="127.0.0.1:27017"
 		ENV['DBNAME']="mongoid"
-		ENV['APIKEY']="1234"
-		ENV['CNAME']="users"
+		ENV['CNAME']="meals"
 	end
 end

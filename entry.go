@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/DigitalInnovation/schnapi/global"
-	"github.com/DigitalInnovation/schnapi/handlers"
+	"github.com/DigitalInnovation/vitamns/global"
+	"github.com/DigitalInnovation/vitamns/handlers"
 )
 
 func logEnvironmentVariables() {

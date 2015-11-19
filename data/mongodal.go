@@ -1,13 +1,11 @@
 package data
 
 import (
-	"errors"
 	"log"
 
-	"github.com/DigitalInnovation/schnapi/entities"
+	"github.com/DigitalInnovation/vitamns/entities"
 
 	"gopkg.in/mgo.v2"
-	"gopkg.in/mgo.v2/bson"
 )
 
 type Mongodal struct {
@@ -34,52 +32,18 @@ func (m *Mongodal) close() {
 	m.session.Close()
 }
 
-func (m *Mongodal) GetAllUsers() ([]entities.User, error) {
-	var user []entities.User
+func (m *Mongodal) GetAllMeals() ([]entities.Meal, error) {
+	var meal []entities.Meal
 
 	ses := m.session.New()
 	defer ses.Close()
 
 	collection := ses.DB(m.databaseName).C(m.collectionName)
-	err := collection.Find(nil).All(&user)
+	err := collection.Find(nil).All(&meal)
 	if err != nil {
 		log.Printf("Error finding user data in mongo: %v", err)
 		return nil, err
 	}
 
-	return user, nil
-}
-
-func (m *Mongodal) CreateUser(user entities.User) error {
-	ses := m.session.New()
-	defer ses.Close()
-
-	collection := ses.DB(m.databaseName).C(m.collectionName)
-	err := collection.Insert(user)
-	if err != nil {
-		log.Printf("Error inserting user data in mongo: %v", err)
-		return err
-	}
-
-	return nil
-}
-
-func (m *Mongodal) DeleteUser(id string) (error, int) {
-	ses := m.session.New()
-	defer ses.Close()
-
-	if !bson.IsObjectIdHex(id) {
-		return errors.New("Bad Request, Id must be a valid bson ObjectIdHex"), 400
-	}
-
-	userId := bson.ObjectIdHex(id)
-
-	collection := ses.DB(m.databaseName).C(m.collectionName)
-	err := collection.RemoveId(userId)
-	if err != nil {
-		log.Printf("Error deleting user with id: %v, %v", id, err)
-		return err, 404
-	}
-
-	return nil, 204
+	return meal, nil
 }
