@@ -1,3 +1,4 @@
 # schnapi
 
 `rake run`
+# vitapi
